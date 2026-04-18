@@ -233,7 +233,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "linear-gradient(180deg, #C8E6F5 0%, #D5EDF7 50%, #E8F5FA 100%)" }}>
+    <div className="h-screen flex flex-col overflow-hidden" style={{ background: "linear-gradient(180deg, #C8E6F5 0%, #D5EDF7 50%, #E8F5FA 100%)" }}>
       {/* ── 顶部导航栏 ── */}
       <header
         className="sticky top-0 z-40 flex items-center justify-center px-4 py-3"
@@ -274,7 +274,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
       </div>
 
       {/* ── 三列视频网格 ── */}
-      <main className="flex-1 px-3 py-3 pb-40 overflow-hidden">
+      <main className="flex-1 px-3 py-3 overflow-y-auto" style={{ paddingBottom: skillOpen ? "60vh" : "1rem" }}>
         <div className="grid grid-cols-3 gap-2">
           {videos.slice(0, 12).map((video) => (
             <div

@@ -425,7 +425,7 @@ export default function ChatPanel({
             }
           }}
           placeholder="收藏过的某个东西不记得了吗？快来问我"
-          autoFocus
+          autoFocus={false}
           className="flex-1 rounded-full px-4 py-2.5 text-sm outline-none"
           style={{
             background: "rgba(255,255,255,0.85)",

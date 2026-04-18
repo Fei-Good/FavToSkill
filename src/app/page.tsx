@@ -67,7 +67,7 @@ export default function LandingPage() {
 
   return (
     <div
-      className="relative min-h-screen overflow-hidden flex items-center justify-center px-4"
+      className="relative h-screen overflow-hidden flex items-center justify-center px-4"
       style={{ background: "linear-gradient(180deg, #C8E6F5 0%, #D5EDF7 50%, #E8F5FA 100%)" }}
     >
       {/* PC端飘浮图标 - 左右各3个 */}
@@ -120,7 +120,7 @@ export default function LandingPage() {
                 FavToSkill
               </h1>
               <p className="text-xs leading-relaxed text-gray-600">
-                你的知识收藏搭子
+                你的知识收藏搭子——抖小夹！
               </p>
             </div>
 
@@ -129,7 +129,7 @@ export default function LandingPage() {
               {[
                 { icon: "📦", text: "一键导入，自动分类", x: "35%", y: "5%" },
                 { icon: "👤", text: "智能提醒，告别吃灰", x: "5%", y: "30%" },
-                { icon: "🔍", text: "随用随问，精准翻找", x: "45%", y: "55%" },
+                { icon: "🔍", text: "随用随问，精准翻找", x: "42%", y: "55%" },
                 { icon: "📖", text: "AI凝练，生成skill", x: "2%", y: "77%" },
               ].map((tag) => (
                 <div

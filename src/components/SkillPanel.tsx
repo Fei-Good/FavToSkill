@@ -252,13 +252,13 @@ export default function SkillPanel({ onClose, categoryId }: { onClose: () => voi
   const bgImage =
     panelState === "loading" ? "/bot/bot_tab.png" : "/bot/click_bot.png";
 
-  // 不同状态不同高度：initial 紧凑，loading 较矮，result 较高
+  // 不同状态不同高度：initial 需要更多空间放 3 个推荐问题 + 输入栏
   const panelHeight =
     panelState === "loading"
       ? "28vh"
       : panelState === "result"
-        ? "50vh"
-        : "50vh"; // initial 比 result 矮
+        ? "55vh"
+        : "65vh";
 
   return (
     <div
@@ -277,7 +277,7 @@ export default function SkillPanel({ onClose, categoryId }: { onClose: () => voi
         style={{ zIndex: 0 }}
       />
 
-      <div className="relative z-10 flex flex-col h-full px-5 pt-5 pb-4">
+      <div className="relative z-10 flex flex-col h-full px-5 pt-5" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))" }}>
       {/* ── 顶部关闭按钮 ── */}
       <div className="flex items-center justify-between mb-3">
         <button
@@ -319,7 +319,7 @@ export default function SkillPanel({ onClose, categoryId }: { onClose: () => voi
       {/* ════════════════ 初始状态 ════════════════ */}
       {panelState === "initial" && (
         <>
-          <div className="flex flex-col pt-2 items-center">
+          <div className="flex flex-col pt-1 items-center flex-1 overflow-y-auto min-h-0">
             <h2
               className="text-lg font-bold text-center"
               style={{ color: "#1A1A1A" }}
@@ -334,11 +334,11 @@ export default function SkillPanel({ onClose, categoryId }: { onClose: () => voi
             </p>
 
             {/* 推荐问题 */}
-            <div className="flex flex-col gap-3 mt-6 w-full">
+            <div className="flex flex-col gap-2.5 mt-4 w-full">
               {questions.map((q) => (
                 <button
                   key={q}
-                  className="text-left rounded-2xl px-4 py-3 text-sm active:scale-[0.98] transition-transform"
+                  className="text-left rounded-2xl px-4 py-2.5 text-sm active:scale-[0.98] transition-transform"
                   style={{
                     background: "rgba(255,255,255,0.65)",
                     color: "#333",
@@ -353,7 +353,7 @@ export default function SkillPanel({ onClose, categoryId }: { onClose: () => voi
           </div>
 
           {/* 输入栏 */}
-          <div className="flex items-center gap-2 pt-6 mt-5">
+          <div className="flex items-center gap-2 pt-3 mt-auto flex-shrink-0">
             <input
               type="text"
               value={input}
